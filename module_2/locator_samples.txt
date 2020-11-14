@@ -1,0 +1,5 @@
+input#first-name
+//input[@name="last-name-field"]
+input.third
+//input[@cust_attr="cust-attr-04"]
+//input[contains(@class,'second')]
