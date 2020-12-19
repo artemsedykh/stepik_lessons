@@ -1,6 +1,7 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+#from datetime import datetime
 
 AVAILABLE_LANGUAGES = ["ru", "en-GB", "es", "fr"]
 
@@ -19,8 +20,11 @@ def browser(request):
 
     print("\nstart browser for test..")
     browser = webdriver.Chrome(options=options)
+    browser.maximize_window()
     browser.implicitly_wait(5)
     browser.user_language = language
     yield browser
+    #now = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+    #browser.save_screenshot('screenshot-%s.png' % now)
     print("\nquit browser..")
     browser.quit()
