@@ -2,10 +2,10 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-AVAILABLE_LANGUAGES = ["ru", "en-GB", "es", "fr", "en"]
+AVAILABLE_LANGUAGES = ["ru", "en-GB", "es", "fr"]
 
 def pytest_addoption(parser):
-    parser.addoption('--language', action='store', default='en',
+    parser.addoption('--language', action='store', default='en-GB',
                      help="Enter user language for tests")
 
 @pytest.fixture(scope="function")
