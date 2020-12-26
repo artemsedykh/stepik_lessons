@@ -2,10 +2,9 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-# from datetime import datetime
-
 AVAILABLE_LANGUAGES = ["ru", "en-GB", "es", "fr"]
 AVAILABLE_BROWSERS = ["chrome", "firefox"]
+
 
 def pytest_addoption(parser):
     parser.addoption('--language', action='store', default='en-GB',
@@ -39,7 +38,5 @@ def browser(request):
     browser.implicitly_wait(5)
     browser.user_language = language
     yield browser
-    # now = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-    # browser.save_screenshot('screenshot-%s.png' % now)
     print("\nquit browser..")
     browser.quit()

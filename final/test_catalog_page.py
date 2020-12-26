@@ -2,6 +2,7 @@ from .pages.catalog_page import CatalogPage
 
 link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/"
 
+
 class TestCatalogPage:
     def test_guest_can_add_product_to_basket_from_catalog_page(self, browser):
         # Arrange

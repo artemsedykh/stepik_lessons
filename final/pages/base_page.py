@@ -53,7 +53,7 @@ class BasePage():
         assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
                                                                      " probably unauthorised user"
 
-    #Browse dropdown methods
+    # Browse dropdown methods
     def should_be_browse_dropdown(self):
         assert self.is_element_present(*BasePageLocators.BROWSE_DROPDOWN_BTN), "There is now Browse dropdown"
 
@@ -62,15 +62,16 @@ class BasePage():
         dropdown_btn.click()
 
     def should_be_expanded_browse_dropdown_list(self):
-        assert len(self.browser.find_elements(*BasePageLocators.BROWSE_DROPDOWN_LINKS)) > 0, "Browse dropdown list" \
+        assert len(self.browser.find_elements(*BasePageLocators.BROWSE_DROPDOWN_ELEMS)) > 0, "Browse dropdown list" \
                                                                                              "is not expanded"
+
     def should_be_link_text_in_browse_dropdown_list(self, link_text):
-        dropdown_list = self.browser.find_elements(*BasePageLocators.BROWSE_DROPDOWN_LINKS)
+        dropdown_list = self.browser.find_elements(*BasePageLocators.BROWSE_DROPDOWN_ELEMS)
         dropdown_list_texts = [item.text.strip() for item in dropdown_list]
         assert link_text in dropdown_list_texts, f"Text {link_text} is not found in Browse dropdown"
 
     def click_on_element_from_dropdown_list(self, link_text):
-        dropdown_list = self.browser.find_elements(*BasePageLocators.BROWSE_DROPDOWN_LINKS)
+        dropdown_list = self.browser.find_elements(*BasePageLocators.BROWSE_DROPDOWN_ELEMS)
         dropdown_list_texts = [item.text.strip() for item in dropdown_list]
         dropdown_list[dropdown_list_texts.index(link_text)].click()
 

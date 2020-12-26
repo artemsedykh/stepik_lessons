@@ -7,16 +7,6 @@ class ProductPage(BasePage):
         add_to_basket_btn = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BTN)
         add_to_basket_btn.click()
 
-    def should_be_same_product_as_added_to_basket(self):
-        success_label = self.browser.find_element(*ProductPageLocators.ADDED_TO_BASKET_LABEL)
-        product_name = "Coders at Work"
-        assert product_name in success_label.text, "Product was not added"
-
-    def should_be_same_price_as_added_to_basket(self):
-        success_price = self.browser.find_element(*ProductPageLocators.BASKET_PRICE_LABEL)
-        product_price = "£19.99"
-        assert product_price in success_price.text, f"Price is different: {success_price.text} vs {product_price}"
-
     def is_product_added_to_basket(self):
         assert self.is_element_present(*ProductPageLocators.ADDED_TO_BASKET_LABEL), "no label"
 

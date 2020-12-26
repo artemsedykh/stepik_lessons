@@ -2,7 +2,6 @@ from .base_page import BasePage
 from .locators import CatalogPageLocators
 
 PRODUCT_NAME = "The shellcoder's handbook"
-PRODUCT_PRICE = "£9.99"
 
 
 class CatalogPage(BasePage):
@@ -24,14 +23,6 @@ class CatalogPage(BasePage):
 
     def is_product_added_to_basket(self):
         assert self.is_element_present(*CatalogPageLocators.ADDED_TO_BASKET_LABEL), "no label"
-
-    def should_be_same_product_as_added_to_basket(self):
-        success_label = self.browser.find_element(*CatalogPageLocators.ADDED_TO_BASKET_LABEL)
-        assert PRODUCT_NAME in success_label.text, "Product was not added"
-
-    def should_be_same_price_as_added_to_basket(self):
-        success_price = self.browser.find_element(*CatalogPageLocators.BASKET_PRICE_LABEL)
-        assert PRODUCT_PRICE in success_price.text, f"Price is different: {success_price.text} vs {PRODUCT_PRICE}"
 
     def go_to_next_catalog_page(self):
         next_btn = self.browser.find_element(*CatalogPageLocators.NEXT_BTN)

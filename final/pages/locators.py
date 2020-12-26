@@ -6,7 +6,7 @@ class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     BASKET_LINK = (By.CSS_SELECTOR, ".btn-group > a")
     BROWSE_DROPDOWN_BTN = (By.CSS_SELECTOR, "#browse > li > a")
-    BROWSE_DROPDOWN_LINKS = (By.CSS_SELECTOR, "#browse > li > ul a")
+    BROWSE_DROPDOWN_ELEMS = (By.CSS_SELECTOR, "#browse > li > ul a")
 
 
 class MainPageLocators():
@@ -33,6 +33,7 @@ class LoginPageLocators():
 class BasketPageLocators():
     BASKET_ITEMS = (By.CSS_SELECTOR, ".basket-items")
     BASKET_IS_EMPTY_LABEL = (By.CSS_SELECTOR, "#content_inner > p")
+
 
 class CatalogPageLocators():
     PRODUCT_DESCRIPTIONS = (By.CSS_SELECTOR, "section h3")

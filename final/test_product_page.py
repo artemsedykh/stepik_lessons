@@ -1,9 +1,12 @@
+import pytest
+import time
+
+from .pages.basket_page import BasketPage
 from .pages.login_page import LoginPage
 from .pages.product_page import ProductPage
-from .pages.basket_page import BasketPage
-import pytest, time
 
 link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207"
+
 
 class TestProductPage:
 
@@ -46,6 +49,7 @@ class TestProductPage:
         basket_page.basket_items_are_not_present()
         basket_page.basket_empty_text_is_present()
 
+
 class TestUserAddToBasketFromProductPage:
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
@@ -68,6 +72,7 @@ class TestUserAddToBasketFromProductPage:
         # Assert
         page.is_not_product_added_to_basket()
 
+    @pytest.mark.xfail
     def test_user_can_add_product_to_basket(self, browser):
         # Arrange
         page = ProductPage(browser, link)
@@ -76,4 +81,3 @@ class TestUserAddToBasketFromProductPage:
         page.add_product_to_basket()
         # Assert
         page.is_product_added_to_basket()
-

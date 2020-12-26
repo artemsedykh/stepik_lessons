@@ -1,6 +1,7 @@
 from .base_page import BasePage
 from .locators import BasketPageLocators
 
+
 class BasketPage(BasePage):
     def basket_items_are_present(self):
         assert self.is_element_present(*BasketPageLocators.BASKET_ITEMS), "basket items are not present"
